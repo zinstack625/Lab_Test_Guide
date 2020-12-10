@@ -18,8 +18,9 @@
 1. (если у вас компилятор из visual studio) В корне вашего репозитория лежит чудесный файлик CMakeLists.txt. В нём необходимо обрамить строчки 24-26 (те которые `string(APPEND...`) в условие:  
 `if (CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")`  
 `те_самые_строчки`  
-`else()`  
-`string(APPEND CMAKE_CXX_FLAGS " -Wall")`  
+`elseif(MSVC)`  
+`string(REGEX REPLACE "/W[0-4]" "/W4" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")`  
+`string(APPEND CMAKE_CXX_FLAGS " /permissive- /WX /Zi")`  
 `endif()`
 2. Убедитесь, что в пути до вашего склонированного репозитория (пример: `C:\Users\UserName\GitHub\01-lab-00-intro-UmniyStudent\`) нет символов, отличных от латиницы
 3. В качесте цели сборки должно быть `tests` или `tests.exe`
