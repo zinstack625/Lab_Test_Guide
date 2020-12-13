@@ -7,7 +7,7 @@
 - - CMake
 - Клиент Git (рекомендую [консольный](https://git-scm.com/download/win), графический также работает)
 - Docker
-- WSL 2 (если при установке докера не трогали галочки, установится вместе с ним)
+- [WSL 2](https://docs.microsoft.com/ru-ru/windows/wsl/install-win10) (если при установке докера не трогали галочки, установится вместе с ним)
 (проверить: `wsl` в `cmd` или `powershell`)
 - [Ядро WSL](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)
 
@@ -38,7 +38,8 @@
 4. Устанавливаем [ядро WSL](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi) 
 5. Для разверстки контейнера докера используем следующую команду (в `powershell`, **в `cmd` не работает**), предварительно перейдя в директорию с лабой:
 `docker run -v ${pwd}:/root/lab -w /root/lab -it rusdevops/bootstrap-cpp`  
-5.1. Для GitHub Actions существуют скрипты:
+
+6. Для GitHub Actions существуют скрипты:
 - `scripts/tests.sh` -- тесты на работоспособность вашего кода (смотри первую часть гайда, чтобы обнаружить шикарный способ это делать в IDE)
 - `scripts/checks.sh` -- базовая проверка стилистики кода, проверки на утечки памяти и несанкционированный доступ к памяти
 - `scripts/coverage.sh` -- проверка на мёртвый код
