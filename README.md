@@ -6,7 +6,7 @@
 - - MSVC (или GCC из MinGW)
 - - CMake
 - Клиент Git (рекомендую [консольный](https://git-scm.com/download/win), графический также работает)
-- Docker
+- [Docker](https://desktop.docker.com/win/stable/Docker%20Desktop%20Installer.exe)
 - [WSL 2](https://docs.microsoft.com/ru-ru/windows/wsl/install-win10) (если при установке докера не трогали галочки, установится вместе с ним)
 (проверить: `wsl` в `cmd` или `powershell`)
 - [Ядро WSL](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)
