@@ -1,17 +1,17 @@
-# Гайдик по запуску тестов лаб Бородина в Windows
+# Гайдик по запуску тестов лаб в Windows
 
 ## То что вам понадобится:
 
 - Visual Studio (или другой IDE)
-- - MSVC (или GCC из MinGW)
+- - MSVC (или GCC из MinGW, можно попробовать и другой, это в идеале не принципиально)
 - - CMake
-- Клиент Git (рекомендую [консольный](https://git-scm.com/download/win), графический также работает)
+- Клиент Git (рекомендую [терминальный](https://git-scm.com/download/win), графический также работает)
 - [Docker](https://desktop.docker.com/win/stable/Docker%20Desktop%20Installer.exe)
 - [WSL 2](https://docs.microsoft.com/ru-ru/windows/wsl/install-win10) (если при установке докера не трогали галочки, установится вместе с ним)
 (проверить: `wsl` в `cmd` или `powershell`)
 - [Ядро WSL](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)
 
-Итак, вы поставили Visual Studio, склонировали репозиторий, захотели запустить, но ничего не вышло?
+Итак, вы поставили Visual Studio (или другой IDE), склонировали репозиторий, захотели запустить, но ничего не вышло?
 **Отправьте мне логи, я хочу посмотреть что у вас там**
 ## Запускаем тесты в вашем IDE
 
@@ -22,17 +22,17 @@
 `string(REGEX REPLACE "/W[0-4]" "/W4" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")`  
 `string(APPEND CMAKE_CXX_FLAGS " /permissive- /WX /Zi")`  
 `endif()`
-2. Убедитесь, что в пути до вашего склонированного репозитория (пример: `C:\Users\UserName\GitHub\01-lab-00-intro-UmniyStudent\`) нет символов, отличных от латиницы
+2. Убедитесь, что в пути до вашего склонированного репозитория (пример: `C:\Users\UserName\GitHub\01-lab-00-intro-UmniyStudent\`) нет символов, отличных от латиницы, а также пробелов
 3. В качесте цели сборки должно быть `tests` или `tests.exe`
 
 ## Что же такое checks и как оно работает?
 
-На данный момент тесты в IDE должны начать работать, но нам также немаловажен скрипт **checks**, его возможно запустить только с среде Linux, на это у нас есть *Docker*
+На данный момент тесты в IDE должны начать работать, но нам также немаловажен скрипт **checks**, его возможно запустить только в среде Linux, на это у нас есть *Docker*
 1. Сначала нужно убедиться, что в файлах склонированного репозитория сносом строки выступает **LF**, а не **CRLF**. Для этого:
 
 1.1. Внесём изменения в файл:
-- для консольного `C:\Program Files\Git\etc\gitconfig`
-- для GitHub Desktop `%LOCALAPPDATA%\GitHubDesktop\app-2.6.1\resources\app\git\etc\gitconfig`
+- для терминального `C:\Program Files\Git\etc\gitconfig`
+- для GitHub Desktop `%LOCALAPPDATA%\GitHubDesktop\app-2.6.1\resources\app\git\etc\gitconfig` (потенциально немного иной)
 - В разделе '[core]' переменной 'autocrlf' задаём значение 'input'
 1.2. Заново клонируем репозиторий, отныне все склонированные через *git* файлы будут иметь окончание строки **LF**
 2. Затем устанавливаем Docker (не нужно если уже установлен)
