@@ -39,7 +39,7 @@
 3. Если при установке почему-то не установили WSL, устанавливаем его любым угодным гуглу способом
 4. Устанавливаем [ядро WSL](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi) 
 5. Для разверстки контейнера докера используем следующую команду (в `powershell`, **в `cmd` не работает**), предварительно перейдя в директорию с лабой:
-`docker run -v ${pwd}:/root/lab -w /root/lab -it rusdevops/bootstrap-cpp`  
+`docker run -v ${pwd}:/root/lab -w /root/lab -it rusdevops/toolbox-cpp`  
 
 6. Для GitHub Actions существуют скрипты:
 - `scripts/tests.sh` -- тесты на работоспособность вашего кода (смотри первую часть гайда, чтобы обнаружить шикарный способ это делать в IDE)
